@@ -1,54 +1,33 @@
-# React + TypeScript + Vite
+# Item Price Updates App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React Web App.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Frontend: React, TypeScript, HTML, CSS, Vite
+- Styling: Vanilla CSS
 
-## Expanding the ESLint configuration
+### Backend
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Real-time price updates via WebSocket using ASP.NET Core SignalR backend
+- Price change indicators (up/down/same)
+- Subscribe/Unsubscribe toggle
+- Minimal network traffic to UI using ASP.NET Core SignalR to push price changes to the client
+- The ASP.NET Core app uses a background service every second to randomly generate item prices
+- The items are pushed to subscribed clients
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Frontend
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The frontend is built with React and TypeScript using Vite for fast development and build times. It connects to the backend via SignalR WebSocket and:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Subscribes to real-time price updates
+- Displays a list of items and their current prices
+- Visually indicates price changes (up, down, or no change)
+- Allows the user to subscribe or unsubscribe from updates
+- Updates the UI in sync with backend-generated data every second
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+To start frontend:  
+`bash`
+cd item-price-app
+
+npm install && npm run dev
