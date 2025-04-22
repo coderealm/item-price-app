@@ -1,0 +1,31 @@
+/* /client/src/App.css */
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+.controls button {
+  margin-right: 10px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.text-green-600 {
+  color: green;
+}
+.text-red-600 {
+  color: red;
+}
+.text-gray-600 {
+  color: gray;
+}
+.mr-30 {
+  margin-right: 30px;
+}
