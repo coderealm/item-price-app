@@ -24,3 +24,11 @@ To start frontend:
 cd item-price-app
 npm install && npm run dev
 ```
+
+## Improvements required
+
+- Add authentication and authorisation
+- Add unit and integration tests
+- Use configurations from .env file
+- Remove hardcoded URL
+- Use Domain Driven Design
